@@ -57,19 +57,19 @@ export default function DocumentsPage() {
         const headers = { "Authorization": `Bearer ${token}` }
 
         // Obyektlarni yuklash
-        const propertiesResponse = await fetch("http://127.0.0.1:8000/properties/objects/", { headers })
+        const propertiesResponse = await fetch("https://ahlanapi.pythonanywhere.com/properties/objects/", { headers })
         if (!propertiesResponse.ok) throw new Error("Obyektlarni yuklashda xatolik")
         const propertiesData = await propertiesResponse.json()
         setProperties(propertiesData.results || propertiesData)
 
         // Mijozlarni yuklash
-        const clientsResponse = await fetch("http://127.0.0.1:8000/clients/", { headers })
+        const clientsResponse = await fetch("https://ahlanapi.pythonanywhere.com/clients/", { headers })
         if (!clientsResponse.ok) throw new Error("Mijozlarni yuklashda xatolik")
         const clientsData = await clientsResponse.json()
         setClients(clientsData.results || clientsData)
 
         // Hujjatlarni yuklash
-        const documentsResponse = await fetch("http://127.0.0.1:8000/documents/?page_size=20", { headers })
+        const documentsResponse = await fetch("https://ahlanapi.pythonanywhere.com/documents/?page_size=20", { headers })
         if (!documentsResponse.ok) throw new Error("Hujjatlarni yuklashda xatolik")
         const documentsData = await documentsResponse.json()
         const formattedDocuments = documentsData.results.map((doc: any) => ({
@@ -134,7 +134,7 @@ export default function DocumentsPage() {
       formDataToSend.append("description", formData.description)
       if (formData.file) formDataToSend.append("file", formData.file)
 
-      const response = await fetch("http://127.0.0.1:8000/documents/", {
+      const response = await fetch("https://ahlanapi.pythonanywhere.com/documents/", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -188,7 +188,7 @@ export default function DocumentsPage() {
   const fetchApartmentByPropertyAndNumber = async (propertyId: string, apartmentNumber: string) => {
     const token = localStorage.getItem("access_token")
     const response = await fetch(
-      `http://127.0.0.1:8000/properties/apartments/?object=${propertyId}&number=${apartmentNumber}`,
+      `https://ahlanapi.pythonanywhere.com/properties/apartments/?object=${propertyId}&number=${apartmentNumber}`,
       {
         headers: { "Authorization": `Bearer ${token}` },
       }

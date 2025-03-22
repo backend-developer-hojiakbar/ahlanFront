@@ -39,14 +39,14 @@ export function PropertyList() {
           "Authorization": `Bearer ${token}`,
         }
 
-        const objectsResponse = await fetch("http://127.0.0.1:8000/objects/", { headers })
+        const objectsResponse = await fetch("https://ahlanapi.pythonanywhere.com/objects/", { headers })
         if (!objectsResponse.ok) {
           const text = await objectsResponse.text()
           throw new Error(`Objects endpoint xatoligi: ${text}`)
         }
         const objects = await objectsResponse.json()
 
-        const apartmentsResponse = await fetch("http://127.0.0.1:8000/apartments/", { headers })
+        const apartmentsResponse = await fetch("https://ahlanapi.pythonanywhere.com/apartments/", { headers })
         if (!apartmentsResponse.ok) {
           const text = await apartmentsResponse.text()
           throw new Error(`Apartments endpoint xatoligi: ${text}`)
@@ -109,7 +109,7 @@ export function PropertyList() {
         "Authorization": `Bearer ${token}`,
       }
 
-      const response = await fetch("http://127.0.0.1:8000/objects/", {
+      const response = await fetch("https://ahlanapi.pythonanywhere.com/objects/", {
         method: "POST",
         headers,
         body: JSON.stringify({

@@ -52,27 +52,27 @@ export default function ClientDetailPage() {
         const clientId = Number(params.id)
 
         // Mijoz ma'lumotlari
-        const clientResponse = await fetch(`http://127.0.0.1:8000/clients/${clientId}/`, { headers })
+        const clientResponse = await fetch(`https://ahlanapi.pythonanywhere.com/clients/${clientId}/`, { headers })
         if (!clientResponse.ok) throw new Error(`Mijoz ma'lumotlarini yuklashda xatolik: ${clientResponse.status}`)
         const clientData = await clientResponse.json()
 
         // To'lovlar
-        const paymentsResponse = await fetch(`http://127.0.0.1:8000/payments/?user=${clientId}&page_size=10`, { headers })
+        const paymentsResponse = await fetch(`https://ahlanapi.pythonanywhere.com/payments/?user=${clientId}&page_size=10`, { headers })
         if (!paymentsResponse.ok) throw new Error(`To'lovlarni yuklashda xatolik: ${paymentsResponse.status}`)
         const paymentsData = await paymentsResponse.json()
 
         // Oylik to'lovlar
-        const monthlyPaymentsResponse = await fetch(`http://127.0.0.1:8000/monthly-payments/?payment__user=${clientId}&page_size=10`, { headers })
+        const monthlyPaymentsResponse = await fetch(`https://ahlanapi.pythonanywhere.com/monthly-payments/?payment__user=${clientId}&page_size=10`, { headers })
         if (!monthlyPaymentsResponse.ok) throw new Error(`Oylik to'lovlarni yuklashda xatolik: ${monthlyPaymentsResponse.status}`)
         const monthlyPaymentsData = await monthlyPaymentsResponse.json()
 
         // To'lov tarixi
-        const paymentHistoryResponse = await fetch(`http://127.0.0.1:8000/payment-history/?user=${clientId}&page_size=10`, { headers })
+        const paymentHistoryResponse = await fetch(`https://ahlanapi.pythonanywhere.com/payment-history/?user=${clientId}&page_size=10`, { headers })
         if (!paymentHistoryResponse.ok) throw new Error(`To'lov tarixini yuklashda xatolik: ${paymentHistoryResponse.status}`)
         const paymentHistoryData = await paymentHistoryResponse.json()
 
         // Hujjatlar
-        const documentsResponse = await fetch(`http://127.0.0.1:8000/documents/?user=${clientId}&page_size=10`, { headers })
+        const documentsResponse = await fetch(`https://ahlanapi.pythonanywhere.com/documents/?user=${clientId}&page_size=10`, { headers })
         if (!documentsResponse.ok) throw new Error(`Hujjatlarni yuklashda xatolik: ${documentsResponse.status}`)
         const documentsData = await documentsResponse.json()
 
@@ -161,7 +161,7 @@ export default function ClientDetailPage() {
         paid: paymentFormData.payment_type !== "Muddatli",
       }
 
-      const response = await fetch("http://127.0.0.1:8000/payments/", {
+      const response = await fetch("https://ahlanapi.pythonanywhere.com/payments/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -227,7 +227,7 @@ export default function ClientDetailPage() {
         monthly_payment_id: monthlyPaymentId,
       }
 
-      const response = await fetch("http://127.0.0.1:8000/monthly-payments/pay_monthly/", {
+      const response = await fetch("https://ahlanapi.pythonanywhere.com/monthly-payments/pay_monthly/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

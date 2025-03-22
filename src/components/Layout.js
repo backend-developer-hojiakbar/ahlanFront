@@ -62,13 +62,13 @@ export default function DashboardPage() {
           salesTrendRes,
           recentSalesRes,
         ] = await Promise.all([
-          fetch("http://127.0.0.1:8000/objects/", { headers }),
-          fetch("http://127.0.0.1:8000/apartments/", { headers }),
-          fetch("http://127.0.0.1:8000/users/", { headers }),
-          fetch("http://127.0.0.1:8000/payments/sales_report/", { headers }),
-          fetch("http://127.0.0.1:8000/monthly-payments/", { headers }),
-          fetch("http://127.0.0.1:8000/payments/sales_trend/", { headers }),
-          fetch("http://127.0.0.1:8000/payments/recent_sales/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/objects/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/apartments/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/users/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/payments/sales_report/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/monthly-payments/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/payments/sales_trend/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/payments/recent_sales/", { headers }),
         ])
 
         if (!objectsRes.ok) throw new Error(`Objects: ${await objectsRes.text()}`)

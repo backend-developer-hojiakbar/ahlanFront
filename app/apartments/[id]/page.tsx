@@ -33,7 +33,7 @@ export default function ApartmentDetailPage() {
         }
 
         const apartmentId = params.id
-        const response = await fetch(`http://127.0.0.1:8000/apartments/${apartmentId}/`, { headers })
+        const response = await fetch(`https://ahlanapi.pythonanywhere.com/apartments/${apartmentId}/`, { headers })
         if (!response.ok) {
           const text = await response.text()
           throw new Error(`Apartment endpoint xatoligi: ${text}`)

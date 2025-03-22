@@ -47,19 +47,19 @@ export default function ClientsPage() {
         const headers = { "Authorization": `Bearer ${token}` }
 
         // Obyektlarni yuklash
-        const propertiesResponse = await fetch("http://127.0.0.1:8000/objects/", { headers })
+        const propertiesResponse = await fetch("https://ahlanapi.pythonanywhere.com/objects/", { headers })
         if (!propertiesResponse.ok) throw new Error(`Objects endpoint xatoligi: ${propertiesResponse.status}`)
         const propertiesData = await propertiesResponse.json()
         setProperties(propertiesData)
 
         // Xonadonlarni yuklash
-        const apartmentsResponse = await fetch("http://127.0.0.1:8000/apartments/", { headers })
+        const apartmentsResponse = await fetch("https://ahlanapi.pythonanywhere.com/apartments/", { headers })
         if (!apartmentsResponse.ok) throw new Error(`Apartments endpoint xatoligi: ${apartmentsResponse.status}`)
         const apartmentsData = await apartmentsResponse.json()
         setApartments(apartmentsData)
 
         // Mijozlarni yuklash
-        const clientsResponse = await fetch("http://127.0.0.1:8000/clients/", { headers })
+        const clientsResponse = await fetch("https://ahlanapi.pythonanywhere.com/clients/", { headers })
         if (!clientsResponse.ok) throw new Error(`Clients endpoint xatoligi: ${clientsResponse.status}`)
         const clientsData = await clientsResponse.json()
         const formattedClients = clientsData.map((client: any) => ({
@@ -120,7 +120,7 @@ export default function ClientsPage() {
 
       console.log("Yuborilayotgan ma'lumotlar:", JSON.stringify(payload)) // Debugging uchun
 
-      const response = await fetch("http://127.0.0.1:8000/clients/", {
+      const response = await fetch("https://ahlanapi.pythonanywhere.com/clients/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

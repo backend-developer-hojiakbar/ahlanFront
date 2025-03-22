@@ -53,11 +53,11 @@ export default function DashboardPage() {
         }
 
         const [objectsRes, apartmentsRes, usersRes, salesReportRes, monthlyPaymentsRes] = await Promise.all([
-          fetch("http://127.0.0.1:8000/objects/", { headers }),
-          fetch("http://127.0.0.1:8000/apartments/", { headers }),
-          fetch("http://127.0.0.1:8000/users/", { headers }),
-          fetch("http://127.0.0.1:8000/payments/sales_report/", { headers }),
-          fetch("http://127.0.0.1:8000/monthly-payments/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/objects/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/apartments/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/users/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/payments/sales_report/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/monthly-payments/", { headers }),
         ])
 
         if (!objectsRes.ok) throw new Error(`Objects: ${await objectsRes.text()}`)
@@ -126,8 +126,8 @@ export default function DashboardPage() {
         }
 
         const [objectsRes, apartmentsRes] = await Promise.all([
-          fetch("http://127.0.0.1:8000/objects/", { headers }),
-          fetch("http://127.0.0.1:8000/apartments/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/objects/", { headers }),
+          fetch("https://ahlanapi.pythonanywhere.com/apartments/", { headers }),
         ])
 
         if (!objectsRes.ok) throw new Error(`Objects: ${await objectsRes.text()}`)

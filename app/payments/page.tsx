@@ -73,7 +73,7 @@ export default function PaymentsPage() {
         }
 
         // Objects (properties)
-        const propertiesResponse = await fetch("http://127.0.0.1:8000/objects/", { headers })
+        const propertiesResponse = await fetch("https://ahlanapi.pythonanywhere.com/objects/", { headers })
         if (!propertiesResponse.ok) {
           const text = await propertiesResponse.text()
           throw new Error(`Objects endpoint xatoligi: ${propertiesResponse.status} - ${text}`)
@@ -82,7 +82,7 @@ export default function PaymentsPage() {
         setProperties(propertiesData.results || [])
 
         // Clients (users)
-        const clientsResponse = await fetch("http://127.0.0.1:8000/users/", { headers })
+        const clientsResponse = await fetch("https://ahlanapi.pythonanywhere.com/users/", { headers })
         if (!clientsResponse.ok) {
           const text = await clientsResponse.text()
           throw new Error(`Users endpoint xatoligi: ${clientsResponse.status} - ${text}`)
@@ -91,7 +91,7 @@ export default function PaymentsPage() {
         setClients(clientsData.results || [])
 
         // Payments
-        const paymentsResponse = await fetch("http://127.0.0.1:8000/monthly-payments/", { headers })
+        const paymentsResponse = await fetch("https://ahlanapi.pythonanywhere.com/monthly-payments/", { headers })
         if (!paymentsResponse.ok) {
           const text = await paymentsResponse.text()
           throw new Error(`Payments endpoint xatoligi: ${paymentsResponse.status} - ${text}`)
@@ -157,7 +157,7 @@ export default function PaymentsPage() {
 
       console.log("Yuborilayotgan ma'lumotlar:", newPayment)
 
-      const response = await fetch("http://127.0.0.1:8000/monthly-payments/", {
+      const response = await fetch("https://ahlanapi.pythonanywhere.com/monthly-payments/", {
         method: "POST",
         headers,
         body: JSON.stringify(newPayment),
