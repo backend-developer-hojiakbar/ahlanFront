@@ -63,7 +63,7 @@ export default function AddPropertyPage() {
 
     setLoading(true)
     try {
-      const response = await fetch("https://ahlanapi.cdpos.uz/objects/", {
+      const response = await fetch("http://api.ahlan.uz/objects/", {
         method: "POST",
         headers: getAuthHeaders(),
         body: JSON.stringify({

@@ -68,7 +68,7 @@ export default function ExpensesPage() {
 
   const fetchProperties = async () => {
     try {
-      const response = await fetch("https://ahlanapi.cdpos.uz/objects/", {
+      const response = await fetch("http://api.ahlan.uz/objects/", {
         method: "GET",
         headers: getAuthHeaders(),
       })
@@ -82,7 +82,7 @@ export default function ExpensesPage() {
 
   const fetchSuppliers = async () => {
     try {
-      const response = await fetch("https://ahlanapi.cdpos.uz/suppliers/", {
+      const response = await fetch("http://api.ahlan.uz/suppliers/", {
         method: "GET",
         headers: getAuthHeaders(),
       })
@@ -96,7 +96,7 @@ export default function ExpensesPage() {
 
   const fetchExpenseTypes = async () => {
     try {
-      const response = await fetch("https://ahlanapi.cdpos.uz/expense-types/", {
+      const response = await fetch("http://api.ahlan.uz/expense-types/", {
         method: "GET",
         headers: getAuthHeaders(),
       })
@@ -111,7 +111,7 @@ export default function ExpensesPage() {
   const fetchExpenses = async () => {
     setLoading(true)
     try {
-      let url = "https://ahlanapi.cdpos.uz/expenses/"
+      let url = "http://api.ahlan.uz/expenses/"
       const queryParams = new URLSearchParams()
       if (filters.object && filters.object !== "all") queryParams.append("object", filters.object)
       if (filters.expense_type && filters.expense_type !== "all") queryParams.append("expense_type", filters.expense_type)
@@ -150,7 +150,7 @@ export default function ExpensesPage() {
 
   const createExpense = async (expenseData) => {
     try {
-      const response = await fetch("https://ahlanapi.cdpos.uz/expenses/", {
+      const response = await fetch("http://api.ahlan.uz/expenses/", {
         method: "POST",
         headers: getAuthHeaders(),
         body: JSON.stringify(expenseData),
@@ -169,7 +169,7 @@ export default function ExpensesPage() {
 
   const fetchExpenseById = async (id) => {
     try {
-      const response = await fetch(`https://ahlanapi.cdpos.uz/expenses/${id}/`, {
+      const response = await fetch(`http://api.ahlan.uz/expenses/${id}/`, {
         method: "GET",
         headers: getAuthHeaders(),
       })
@@ -192,7 +192,7 @@ export default function ExpensesPage() {
 
   const updateExpense = async (id, expenseData) => {
     try {
-      const response = await fetch(`https://ahlanapi.cdpos.uz/expenses/${id}/`, {
+      const response = await fetch(`http://api.ahlan.uz/expenses/${id}/`, {
         method: "PUT",
         headers: getAuthHeaders(),
         body: JSON.stringify(expenseData),
@@ -211,7 +211,7 @@ export default function ExpensesPage() {
 
   const partialUpdateExpense = async (id, expenseData) => {
     try {
-      const response = await fetch(`https://ahlanapi.cdpos.uz/expenses/${id}/`, {
+      const response = await fetch(`http://api.ahlan.uz/expenses/${id}/`, {
         method: "PATCH",
         headers: getAuthHeaders(),
         body: JSON.stringify(expenseData),
@@ -230,7 +230,7 @@ export default function ExpensesPage() {
   const deleteExpense = async (id) => {
     if (!window.confirm("Bu xarajatni o‘chirishni tasdiqlaysizmi?")) return
     try {
-      const response = await fetch(`https://ahlanapi.cdpos.uz/expenses/${id}/`, {
+      const response = await fetch(`http://api.ahlan.uz/expenses/${id}/`, {
         method: "DELETE",
         headers: getAuthHeaders(),
       })

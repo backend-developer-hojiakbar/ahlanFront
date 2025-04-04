@@ -53,7 +53,7 @@ export default function PropertyDetailPage() {
       setLoading(true)
       try {
         // Obyekt ma'lumotlari
-        const propertyResponse = await fetch(`https://ahlanapi.cdpos.uz/objects/${params.id}/`, {
+        const propertyResponse = await fetch(`http://api.ahlan.uz/objects/${params.id}/`, {
           method: "GET",
           headers: getAuthHeaders(),
         })
@@ -61,7 +61,7 @@ export default function PropertyDetailPage() {
         const propertyData = await propertyResponse.json()
 
         // Xonadonlar ro'yxati
-        const apartmentsResponse = await fetch(`https://ahlanapi.cdpos.uz/apartments/?object=${params.id}`, {
+        const apartmentsResponse = await fetch(`http://api.ahlan.uz/apartments/?object=${params.id}`, {
           method: "GET",
           headers: getAuthHeaders(),
         })
@@ -69,7 +69,7 @@ export default function PropertyDetailPage() {
         const apartmentsData = await apartmentsResponse.json()
 
         // Xarajatlar
-        const expensesResponse = await fetch(`https://ahlanapi.cdpos.uz/expenses/?object=${params.id}`, {
+        const expensesResponse = await fetch(`http://api.ahlan.uz/expenses/?object=${params.id}`, {
           method: "GET",
           headers: getAuthHeaders(),
         })
@@ -77,7 +77,7 @@ export default function PropertyDetailPage() {
         const expensesData = await expensesResponse.json()
 
         // Hujjatlar (Payment orqali)
-        const paymentsResponse = await fetch(`https://ahlanapi.cdpos.uz/payments/?apartment__object=${params.id}`, {
+        const paymentsResponse = await fetch(`http://api.ahlan.uz/payments/?apartment__object=${params.id}`, {
           method: "GET",
           headers: getAuthHeaders(),
         })
@@ -86,7 +86,7 @@ export default function PropertyDetailPage() {
         const allDocuments = paymentsData.results.flatMap(payment => payment.documents)
 
         // Analitika
-        const analyticsResponse = await fetch("https://ahlanapi.cdpos.uz/payments/statistics/", {
+        const analyticsResponse = await fetch("http://api.ahlan.uz/payments/statistics/", {
           method: "GET",
           headers: getAuthHeaders(),
         })
@@ -325,7 +325,7 @@ export default function PropertyDetailPage() {
                     {documents.map((doc) => (
                       <li key={doc.id}>
                         <a
-                          href={`https://ahlanapi.cdpos.uz${doc.pdf_file}`}
+                          href={`http://api.ahlan.uz${doc.pdf_file}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-600 hover:underline"

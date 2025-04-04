@@ -72,7 +72,7 @@ export default function ClientsPage() {
   const fetchClients = async () => {
     setLoading(true)
     try {
-      const response = await fetch("https://ahlanapi.cdpos.uz/users/", {
+      const response = await fetch("http://api.ahlan.uz/users/", {
         method: "GET",
         headers: getAuthHeaders(),
       })
@@ -131,7 +131,7 @@ export default function ClientsPage() {
   // Yangi mijoz qo‘shish
   const createClient = async (clientData: any) => {
     try {
-      const response = await fetch("https://ahlanapi.cdpos.uz/users/", {
+      const response = await fetch("http://api.ahlan.uz/users/", {
         method: "POST",
         headers: getAuthHeaders(),
         body: JSON.stringify(clientData),
@@ -155,7 +155,7 @@ export default function ClientsPage() {
   // Mijozni yangilash
   const updateClient = async (id: number, clientData: any) => {
     try {
-      const response = await fetch(`https://ahlanapi.cdpos.uz/users/${id}/`, {
+      const response = await fetch(`http://api.ahlan.uz/users/${id}/`, {
         method: "PUT",
         headers: getAuthHeaders(),
         body: JSON.stringify(clientData),
@@ -179,7 +179,7 @@ export default function ClientsPage() {
   // Mijozni o‘chirish
   const deleteClient = async (id: number) => {
     try {
-      const response = await fetch(`https://ahlanapi.cdpos.uz/users/${id}/`, {
+      const response = await fetch(`http://api.ahlan.uz/users/${id}/`, {
         method: "DELETE",
         headers: getAuthHeaders(),
       })

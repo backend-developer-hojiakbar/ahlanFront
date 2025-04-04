@@ -60,7 +60,7 @@ export default function ClientDetailPage() {
     if (!params.id || !accessToken) return
     setLoading(true)
     try {
-      const response = await fetch(`https://ahlanapi.cdpos.uz/users/${params.id}/`, {
+      const response = await fetch(`http://api.ahlan.uz/users/${params.id}/`, {
         method: "GET",
         headers: getAuthHeaders(),
       })
@@ -194,7 +194,7 @@ export default function ClientDetailPage() {
         status: "paid",
       }
 
-      const response = await fetch(`https://ahlanapi.cdpos.uz/payments/`, {
+      const response = await fetch(`http://api.ahlan.uz/payments/`, {
         method: "POST",
         headers: getAuthHeaders(),
         body: JSON.stringify(newPayment),

@@ -40,7 +40,7 @@ export default function ApartmentsPage() {
     pageSize: 20,
   });
 
-  const API_BASE_URL = "https://ahlanapi.cdpos.uz";
+  const API_BASE_URL = "http://api.ahlan.uz";
 
   const getAuthHeaders = () => ({
     Accept: "application/json",

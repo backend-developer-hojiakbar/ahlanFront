@@ -30,7 +30,7 @@ export default function PropertiesPage() {
     }
   }, [])
 
-  const fetchAllObjects = async (url = "https://ahlanapi.cdpos.uz/objects/") => {
+  const fetchAllObjects = async (url = "http://api.ahlan.uz/objects/") => {
     let allObjects = []
     let nextUrl = url
 

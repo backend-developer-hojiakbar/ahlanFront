@@ -84,7 +84,7 @@ export default function DashboardPage() {
 
     const fetchStats = async () => {
       try {
-        let url = "https://ahlanapi.cdpos.uz/payments/statistics/";
+        let url = "http://api.ahlan.uz/payments/statistics/";
         if (dateRange.from && dateRange.to) {
           url += `?created_at__gte=${dateRange.from.toISOString().split("T")[0]}&created_at__lte=${dateRange.to.toISOString().split("T")[0]}`;
         }
@@ -143,7 +143,7 @@ export default function DashboardPage() {
     const fetchObjects = async () => {
       setLoadingObjects(true);
       try {
-        const response = await fetch("https://ahlanapi.cdpos.uz/objects/", {
+        const response = await fetch("http://api.ahlan.uz/objects/", {
           method: "GET",
           headers: getAuthHeaders(),
         });
@@ -187,7 +187,7 @@ export default function DashboardPage() {
 
     const fetchRecentPayments = async () => {
       try {
-        let url = "https://ahlanapi.cdpos.uz/payments/?page_size=5";
+        let url = "http://api.ahlan.uz/payments/?page_size=5";
         if (dateRange.from && dateRange.to) {
           url += `&created_at__gte=${dateRange.from.toISOString().split("T")[0]}&created_at__lte=${dateRange.to.toISOString().split("T")[0]}`;
         }
@@ -231,7 +231,7 @@ export default function DashboardPage() {
 
     const fetchSalesData = async () => {
       try {
-        let url = "https://ahlanapi.cdpos.uz/payments/";
+        let url = "http://api.ahlan.uz/payments/";
         if (dateRange.from && dateRange.to) {
           url += `?created_at__gte=${dateRange.from.toISOString().split("T")[0]}&created_at__lte=${dateRange.to.toISOString().split("T")[0]}`;
         }

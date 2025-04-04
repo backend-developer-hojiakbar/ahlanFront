@@ -70,7 +70,7 @@ export default function PaymentsPage() {
   const [totalOverdue, setTotalOverdue] = useState("0");
   const [formattedPayments, setFormattedPayments] = useState<any[]>([]);
 
-  const API_BASE_URL = "https://ahlanapi.cdpos.uz"; // API bazaviy URL (prefiksiz)
+  const API_BASE_URL = "http://api.ahlan.uz"; // API bazaviy URL (prefiksiz)
 
   const getAuthHeaders = () => ({
     Accept: "application/json",

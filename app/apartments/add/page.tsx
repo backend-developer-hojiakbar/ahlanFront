@@ -39,7 +39,7 @@ export default function AddApartmentPage() {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await fetch("https://ahlanapi.cdpos.uz/objects/", {
+        const response = await fetch("http://api.ahlan.uz/objects/", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -98,7 +98,7 @@ export default function AddApartmentPage() {
     }
 
     try {
-      const response = await fetch("https://ahlanapi.cdpos.uz/apartments/", {
+      const response = await fetch("http://api.ahlan.uz/apartments/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
